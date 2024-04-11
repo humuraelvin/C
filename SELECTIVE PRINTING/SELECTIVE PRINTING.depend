@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1698414625 source:c:\users\pc\desktop\selective printing\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1698507567 source:c:\users\pc\desktop\workings\c\selective printing\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
