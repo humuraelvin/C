@@ -35,3 +35,8 @@ In C, you can perform four major operations on files, either text or binary:
 2. Opening an existing file
 3. Closing a file
 4. Reading from and writing information to a file
+
+* Working with files
+When working with files, you need to declare a pointer of type file. This declaration is needed for communication between the file and the program.
+
+- FILE *fptr;
