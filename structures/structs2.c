@@ -4,6 +4,7 @@
 
 struct str1{
     int a;
+    float b;
 };
 
 typedef struct str1 str1;
