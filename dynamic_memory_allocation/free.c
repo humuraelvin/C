@@ -1,7 +1,8 @@
-//Syntax of calloc()
-//ptr = (castType*)calloc(n, size);
-//Example:
+//after some memory have been allocated for specific usage
+//it needs to be freed so that it might be used by other programs or processess of your OS
+//THATS WHERE THE free() function comes into action
 
-//ptr = (float*) calloc(25, sizeof(float));
-//The above statement allocates contiguous space in memory for 25 elements of type float.
+//sytanx of free is
+
+//free(ptr);
 
