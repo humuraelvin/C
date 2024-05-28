@@ -19,6 +19,7 @@ int main(){
     str2 var2 = { 314 };
 
     printf("var1.a = %d \n", var1.a);
+    //printf("var1.b = %f \n", var1.b);
 
     printf("var2.x = %d \n", var2.x);
 
