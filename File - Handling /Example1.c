@@ -6,7 +6,7 @@ int main(){
     int num;
     FILE *fptr;
 
-    fptr = fopen("/home/humura/Documents/workings/font family.txt","w");
+    fptr = fopen("/home/humura/Documents/workings/workings/font family.txt","w");
 
     if (fptr == NULL)
     {

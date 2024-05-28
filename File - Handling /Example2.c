@@ -8,9 +8,9 @@ int main(){
     int num;
     FILE *fptr;
 
-    if ((fptr = fopen("/home/humura/Documents/workings/font family.txt","r")) == NULL)
+    if ((fptr = fopen("/home/humura/Documents/workings/workings/font family.txt","r")) == NULL)
     {
-        printf("Error! opening file -- May be doesnt exist");
+        printf("Error! opening file -- May be doesnt exist in specified path");
         exit(1);
     }
 
