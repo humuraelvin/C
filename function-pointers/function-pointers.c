@@ -53,15 +53,15 @@ void addOne(int* ptr) {
   (*ptr)++; // adding 1 to *ptr
 }
 
-int main()
-{
-  int* p, i = 10;
-  p = &i;
-  addOne(p);
+// int main()
+// {
+//   int* p, i = 10;
+//   p = &i;
+//   addOne(p);
 
-  printf("%d", *p); // 11
-  return 0;
-}
+//   printf("%d", *p); // 11
+//   return 0;
+// }
 
 // Here, the value stored at p, *p, is 10 initially.
 
