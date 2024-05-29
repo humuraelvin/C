@@ -14,7 +14,7 @@ int main(){
     struct threeNum num;
     FILE *fptr;
 
-    if ((fptr = fopen("/home/humura/Documents/workings/program.bin","wb")) == NULL)
+    if ((fptr = fopen("/home/humura/Documents/workings/workings/program.bin","wb")) == NULL)
     {
         printf("Error! Opening file-- may be does not exist");  
         exit(1); 
