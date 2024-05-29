@@ -15,7 +15,7 @@ struct charSet
 }cs;
 
 int main(){
-    var.a = 5;
+    var.a = 65;
     printf("Member a= %d, member b = %c, size of abc union = %d \n", var.a, var.b,sizeof(var));
     keyValue(var.a, var.b);
     printf("Member s= %d, member g = %c, size of cs structure = %d \n", cs.i, cs.s,sizeof(cs));
