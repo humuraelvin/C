@@ -26,5 +26,3 @@ void keyValue(int charValueOne, char charValueTwo){
     cs.i = charValueOne;
     cs.s = charValueTwo;
 }
-
-
