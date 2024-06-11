@@ -1,0 +1,18 @@
+Could not open required defaults file: /path/with/no/extension
+MYSQLD would have been started with the following arguments:
+
+Could not open required defaults file: /path/with.ext
+MYSQLD would have been started with the following arguments:
+
+Could not open required defaults file: MYSQL_TEST_DIR/relative/path/with.ext
+MYSQLD would have been started with the following arguments:
+
+Could not open required defaults file: MYSQL_TEST_DIR/relative/path/without/extension
+MYSQLD would have been started with the following arguments:
+
+Could not open required defaults file: MYSQL_TEST_DIR/with.ext
+MYSQLD would have been started with the following arguments:
+
+Could not open required defaults file: MYSQL_TEST_DIR/no_extension
+MYSQLD would have been started with the following arguments:
+

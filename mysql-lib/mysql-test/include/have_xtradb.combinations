@@ -1,0 +1,13 @@
+[xtradb_plugin]
+ignore-builtin-innodb
+plugin-load-add=$HA_XTRADB_SO
+innodb
+innodb-cmpmem
+innodb-trx
+innodb-sys-index
+
+[xtradb]
+innodb
+innodb-cmpmem
+innodb-trx
+innodb-sys-index

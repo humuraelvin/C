@@ -1,0 +1,35 @@
+create table t1 (test_name text);
+create table t2 (variable_name text);
+load data infile "MYSQLTEST_VARDIR/tmp/sys_vars.all_vars.txt" into table t1;
+insert into t2 select variable_name from information_schema.global_variables;
+insert into t2 select variable_name from information_schema.session_variables;
+update t2 set variable_name= replace(variable_name, "PERFORMANCE_SCHEMA_", "PFS_");
+select distinct variable_name as `there should be *no* long test name listed below:` from t2
+where length(variable_name) > 50;
+there should be *no* long test name listed below:
+select distinct variable_name as `there should be *no* variables listed below:` from t2
+left join t1 on variable_name=test_name where test_name is null;
+there should be *no* variables listed below:
+allow_delayed_write
+allow_xa
+audit_log_connections
+audit_log_super
+block_user_access
+deprecated_engines
+innodb_default_row_format
+repl_port
+reserved_super_connections
+rpl_allow_implicit_commit
+rpl_crash_on_binlog_io_error
+sql_log
+sql_log_cache_size
+sql_log_cache_size_max
+sql_log_database
+sql_log_ddl
+sql_log_ddl_base64_encode_stmts
+sql_log_err_aborts_txn
+sql_log_file
+super_to_set_timestamp
+update_connection_privs
+drop table t1;
+drop table t2;
