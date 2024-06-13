@@ -32,8 +32,5 @@ int main()
         printf("The area of the rectangle is %lf", area);
     }
 
-
-
-
     return 0;
 }
