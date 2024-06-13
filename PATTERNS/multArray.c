@@ -36,4 +36,5 @@ int main() {
     multidimensionalArrayMan(arr, x, y, z);
 
     return 0;
+    
 }
