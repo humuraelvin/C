@@ -20,9 +20,5 @@ int main(){
 
     printf("the sum of the four numbers is= %lf", sum);
 
-
-
-
-
  return 0;
 }
