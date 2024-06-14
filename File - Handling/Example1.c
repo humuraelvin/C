@@ -6,7 +6,7 @@ int main(){
     int num;
     FILE *fptr;
 
-    fptr = fopen("/home/humura/Documents/workings/c_file_handling.txt","w");
+    fptr = fopen("/home/humura/Documents/workings/c_file_handling.txt","a");
 
     if (fptr == NULL)
     {
