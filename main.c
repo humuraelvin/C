@@ -7,5 +7,3 @@ char firstname[]="chanta";
 printf(firstname);
 return 0;
 }
-
-
