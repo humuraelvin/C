@@ -15,6 +15,8 @@ int main(){
     int result3 = strcmp(str1, str4);
 
 
-    printf("Comparing %s and %s gives %d", str1, str2, result1);
+    printf("Comparing %s and %s gives %d \n", str1, str2, result1);
+    printf("Comparing %s and %s gives %d \n", str1, str3, result2);
+
 
 }
