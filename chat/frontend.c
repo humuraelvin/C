@@ -5,21 +5,15 @@
 #include <arpa/inet.h>
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <pthread.h>
 
 #define PORT 8080
 #define BUF_SIZE 1024
 
-void *receive_messages(void *arg);
-void show_menu();
-
 int main() {
     int sock = 0;
     struct sockaddr_in serv_addr;
-    pthread_t recv_thread;
     char buffer[BUF_SIZE] = {0};
     char message[BUF_SIZE];
-    char option[2];
 
     // Creating socket
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
@@ -42,54 +36,19 @@ int main() {
         return -1;
     }
 
-    printf("Connected to the server.\n");
-
-    pthread_create(&recv_thread, NULL, receive_messages, (void *)&sock);
+    printf("Connected to the server. Type messages to send:\n");
 
     while (1) {
-        show_menu();
-        fgets(option, 2, stdin);
-        getchar(); // Consume the newline character left by fgets
+        printf("You: ");
+        fgets(message, BUF_SIZE, stdin);
+        message[strcspn(message, "\n")] = 0; // Remove newline character
 
-        switch (option[0]) {
-            case '1':
-                printf("Enter your message: ");
-                fgets(message, BUF_SIZE, stdin);
-                message[strcspn(message, "\n")] = 0; // Remove newline character
-                send(sock, message, strlen(message), 0);
-                break;
-            case '2':
-                printf("Quitting the chat...\n");
-                close(sock);
-                exit(0);
-                break;
-            default:
-                printf("Invalid option. Please try again.\n");
-                break;
-        }
+        send(sock, message, strlen(message), 0);
+        int valread = read(sock, buffer, BUF_SIZE);
+        buffer[valread] = '\0';
+        printf("Server: %s\n", buffer);
     }
 
     close(sock);
     return 0;
-}
-
-void *receive_messages(void *arg) {
-    int sock = *(int *)arg;
-    char buffer[BUF_SIZE];
-    int valread;
-
-    while ((valread = read(sock, buffer, BUF_SIZE)) > 0) {
-        buffer[valread] = '\0';
-        printf("\nServer: %s\n", buffer);
-        show_menu();
-    }
-
-    return NULL;
-}
-
-void show_menu() {
-    printf("\nMenu:\n");
-    printf("1. Send a message\n");
-    printf("2. Quit\n");
-    printf("Choose an option: ");
 }
