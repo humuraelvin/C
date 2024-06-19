@@ -15,6 +15,14 @@ int main(){
         return 0;
     }
 
+   for ( lv = n-1; lv >=2; lv--)
+   {
+      if (lv)
+      {
+        /* code */
+      }
+      
+   }
     
     
 
