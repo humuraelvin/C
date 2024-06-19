@@ -17,6 +17,9 @@ int main(){
 
     printf("Comparing %s and %s gives %d \n", str1, str2, result1);
     printf("Comparing %s and %s gives %d \n", str1, str3, result2);
+    printf("Comparing %s and %s gives %d \n", str1, str2, result1);
 
+
+return 0;
 
 }
