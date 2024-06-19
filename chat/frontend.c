@@ -41,7 +41,7 @@ int main() {
     while (1) {
         printf("You: ");
         fgets(message, BUF_SIZE, stdin);
-        message[strcspn(message, "\n")] = 0; // Remove newline character
+        message[strcspn(message, "\n")] = 0; 
 
         send(sock, message, strlen(message), 0);
         int valread = read(sock, buffer, BUF_SIZE);
