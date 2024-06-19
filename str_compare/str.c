@@ -1,25 +1,19 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-
-int main(){
-
+int main() {
     const char *str1 = "hello";
     const char *str2 = "hello";
     const char *str3 = "world";
     const char *str4 = "hell";
 
-    int result1 = strcmp(str1, str2);
-    int result2 = strcmp(str1, str3);
-    int result3 = strcmp(str1, str4);
+    int result1 = strcmp(str1, str2);  // should return 0
+    int result2 = strcmp(str1, str3);  // should return a negative value
+    int result3 = strcmp(str1, str4);  // should return a positive value
 
+    printf("Comparing '%s' and '%s': %d\n", str1, str2, result1);
+    printf("Comparing '%s' and '%s': %d\n", str1, str3, result2);
+    printf("Comparing '%s' and '%s': %d\n", str1, str4, result3);
 
-    printf("Comparing %s and %s gives %d \n", str1, str2, result1);
-    printf("Comparing %s and %s gives %d \n", str1, str3, result2);
-    printf("Comparing %s and %s gives %d \n", str1, str4, result3);
-
-
-return 0;
-
+    return 0;
 }
