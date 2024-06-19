@@ -24,6 +24,16 @@ int main(){
       }
       
    }
+
+   if (flag == 0)
+   {
+    printf("The entered number is not prime");
+   }else
+   {
+    printf("The entered number is prime");
+   }
+   
+   
     
     
 
