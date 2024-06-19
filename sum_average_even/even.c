@@ -6,7 +6,7 @@ int main(){
     
     int n, i ,j, sum;
 
-    printf("To which number do you want to calculate the sum of even numbers");
+    printf("To which number do you want to calculate the sum of even numbers \n");
     scanf("%d", &n);
 
     for ( i = 0; i < n; i++)
@@ -21,7 +21,7 @@ int main(){
 
     int average = sum / j;
 
-    printf("SUM = %d", sum);
+    printf("SUM = %d \n", sum);
     printf("AVERAGE = %d", average);
     
     
