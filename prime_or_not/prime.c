@@ -17,9 +17,10 @@ int main(){
 
    for ( lv = n-1; lv >=2; lv--)
    {
-      if (lv)
+      if (n % lv == 0)
       {
-        /* code */
+        flag = 0;
+        break;
       }
       
    }
