@@ -15,7 +15,7 @@ int main() {
     char buffer[BUF_SIZE] = {0};
     char message[BUF_SIZE];
 
-    // Creating socket
+   
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         printf("Socket creation error\n");
         return -1;
