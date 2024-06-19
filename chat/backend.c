@@ -9,14 +9,24 @@
 
 #define PORT 8080
 #define BUF_SIZE 1024
+#define MAX_CLIENTS 10
 
 void *handle_client(void *arg);
+void broadcast_message(char *message, int sender_fd);
+
+int client_sockets[MAX_CLIENTS];
+pthread_mutex_t clients_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 int main() {
     int server_fd, new_socket;
     struct sockaddr_in address;
     int addrlen = sizeof(address);
     pthread_t tid;
+
+    // Initialize client sockets array
+    for (int i = 0; i < MAX_CLIENTS; i++) {
+        client_sockets[i] = 0;
+    }
 
     // Creating socket file descriptor
     if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
@@ -46,6 +56,17 @@ int main() {
 
     while ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t *)&addrlen)) >= 0) {
         printf("New connection accepted\n");
+
+        // Add new socket to client_sockets array
+        pthread_mutex_lock(&clients_mutex);
+        for (int i = 0; i < MAX_CLIENTS; i++) {
+            if (client_sockets[i] == 0) {
+                client_sockets[i] = new_socket;
+                break;
+            }
+        }
+        pthread_mutex_unlock(&clients_mutex);
+
         pthread_create(&tid, NULL, handle_client, (void *)&new_socket);
     }
 
@@ -67,7 +88,7 @@ void *handle_client(void *arg) {
     while ((read_size = recv(socket, buffer, BUF_SIZE, 0)) > 0) {
         buffer[read_size] = '\0';
         printf("Client: %s\n", buffer);
-        send(socket, buffer, read_size, 0);
+        broadcast_message(buffer, socket);
     }
 
     if (read_size == 0) {
@@ -76,6 +97,26 @@ void *handle_client(void *arg) {
         perror("recv failed");
     }
 
+    // Remove socket from client_sockets array
+    pthread_mutex_lock(&clients_mutex);
+    for (int i = 0; i < MAX_CLIENTS; i++) {
+        if (client_sockets[i] == socket) {
+            client_sockets[i] = 0;
+            break;
+        }
+    }
+    pthread_mutex_unlock(&clients_mutex);
+
     close(socket);
     return NULL;
+}
+
+void broadcast_message(char *message, int sender_fd) {
+    pthread_mutex_lock(&clients_mutex);
+    for (int i = 0; i < MAX_CLIENTS; i++) {
+        if (client_sockets[i] != 0 && client_sockets[i] != sender_fd) {
+            send(client_sockets[i], message, strlen(message), 0);
+        }
+    }
+    pthread_mutex_unlock(&clients_mutex);
 }
