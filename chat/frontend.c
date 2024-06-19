@@ -30,7 +30,7 @@ int main() {
         return -1;
     }
 
-    // Connect to server
+    
     if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
         printf("Connection failed\n");
         return -1;
