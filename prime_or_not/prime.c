@@ -32,9 +32,5 @@ int main(){
    {
     printf("The entered number is prime");
    }
-   
-   
-    
-    
 
 ;}
