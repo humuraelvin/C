@@ -35,7 +35,7 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    // Listening for incoming connections
+    
     if (listen(server_fd, 3) < 0) {
         perror("listen");
         close(server_fd);
