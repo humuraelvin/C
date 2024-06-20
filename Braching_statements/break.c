@@ -7,6 +7,6 @@ int main(){
     printf("%d", counter);
     if (counter == 4)
     break;
-    counter += 1;
+    counter ++;
     }
 }
